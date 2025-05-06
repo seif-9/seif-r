@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>متحف الحضارات</title>
+  <link rel="stylesheet" href="ext.css">
+</head>
+
+<style>/* تنسيق الجسم العام للموقع */
+body {
+  margin: 0; /* إزالة الهوامش من الأطراف */
+  font-family: 'Cairo', sans-serif; /* تحديد نوع الخط */
+  background-color: #f4f4f4; /* لون الخلفية فاتح */
+  direction: rtl; /* اتجاه الكتابة من اليمين لليسار */
+}
+
+/* تنسيق الهيدر اللي فوق */
+header {
+  background-color: #202053; /* لون الخلفية أزرق غامق */
+  color: white; /* لون الخط أبيض */
+  padding: 30px; /* مساحة داخلية */
+  text-align: center; /* توسيط النص */
+}
+
+header h1 {
+  font-size: 36px; /* حجم كبير للعنوان */
+  margin: 0; /* بدون هامش خارجي */
+}
+
+header h3 {
+  font-weight: normal; /* بدون عُرض زائد */
+  margin-top: 10px; /* مسافة بسيطة من فوق */
+  color: #eee;
+}
+
+/* تنسيق صندوق البحث */
+form {
+  text-align: center; /* توسيط المحتوى */
+  padding: 20px; /* مساحة داخلية */
+  background-color: #eee; /* لون رمادي فاتح للخلفية */
+}
+
+input[type="search"] {
+  padding: 10px; /* مساحة داخلية */
+  width: 250px; /* العرض */
+  font-size: 16px; /* حجم الخط */
+  border-radius: 5px; /* تدوير الزوايا */
+  border: 1px solid #ccc; /* إطار خفيف */
+}
+
+.search-btn {
+  padding: 10px 20px; /* مساحة داخلية للزر */
+  font-size: 16px; /* حجم الخط */
+  background-color: #202053; /* لون خلفية الزر */
+  color: white; /* لون الخط أبيض */
+  border: none; /* بدون إطار */
+  border-radius: 5px; /* زوايا مدورة */
+  cursor: pointer; /* شكل مؤشر الماوس */
+}
+
+/* تنسيق أقسام الحضارات الأربعة */
+.s1, .s2, .s3, .s4 {
+  background-color: white; /* خلفية بيضاء */
+  margin: 20px auto; /* مسافة من فوق وتحت + توسيط */
+  padding: 20px; /* مساحة داخلية */
+  border-radius: 15px; /* تدوير الحواف */
+  width: 90%; /* عرض نسبي */
+  max-width: 800px; /* أقصى عرض */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* ظل خفيف */
+}
+
+/* تنسيق عناوين الأقسام */
+h2, h3 {
+  color: #202053; /* لون العنوان أزرق غامق */
+}
+
+/* تنسيق القوائم */
+ol, ul {
+  padding-right: 20px; /* مسافة لليمين */
+}
+
+/* تنسيق بطاقات عرض الحضارات */
+.card {
+  background-color: white; /* خلفية بيضاء */
+  border-radius: 15px; /* زوايا مدورة */
+  padding: 15px; /* مساحة داخلية */
+  margin: 10px; /* مسافة بين البطاقات */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* ظل خفيف */
+  text-align: center; /* توسيط النص */
+  width: 250px; /* عرض البطاقة */
+}
+
+.card img {
+  width: 100%; /* الصورة تغطي كل العرض */
+  height: 180px; /* ارتفاع ثابت */
+  object-fit: cover; /* تقطيع الصورة لتناسب الإطار */
+  border-radius: 10px; /* زوايا مدورة للصورة */
+}
+
+.card button {
+  margin-top: 10px; /* مسافة فوق الزر */
+  background-color: #202053; /* لون خلفية الزر */
+  color: white; /* لون الخط أبيض */
+  padding: 8px 15px; /* حجم الزر */
+  border: none; /* بدون إطار */
+  border-radius: 5px; /* زوايا مدورة */
+  cursor: pointer; /* شكل الماوس عند التمرير */
+}
+
+/* تنسيق الحاوية اللي بتجمع البطاقات */
+.container {
+  display: flex; /* ترتيب أفقي */
+  flex-wrap: wrap; /* لو مفيش مساحة ينزل تحت */
+  justify-content: center; /* توسيط البطاقات */
+  padding: 20px; /* مسافة داخلية */
+  gap: 20px; /* مسافة بين البطاقات */
+}
+
+/* الفوتر أسفل الصفحة */
+footer {
+  background-color: #202053; /* خلفية داكنة */
+  color: white; /* لون الخط */
+  text-align: center; /* توسيط المحتوى */
+  padding: 20px; /* مسافة داخلية */
+}
+
+footer a img {
+  margin: 0 10px; /* مسافة بين الأيقونات */
+}
+
+/* قسم ساعات العمل */
+.working-hours {
+  background-color: #12124a; /* لون خلفية داكن */
+  color: white; /* لون الخط أبيض */
+  padding: 40px 0; /* مساحة من فوق وتحت */
+  direction: rtl; /* من اليمين لليسار */
+  text-align: center; /* توسيط المحتوى */
+}
+
+/* الحاوية اللي بتحتوي الساعة والعنوان */
+.container-hours {
+  display: flex; /* ترتيب أفقي */
+  justify-content: space-around; /* توزيع المسافات */
+  align-items: center; /* توسيط العناصر عامودي */
+  flex-wrap: wrap; /* ينزل تحت لو الشاشة صغيرة */
+  max-width: 1000px; /* أقصى عرض */
+  margin: 0 auto; /* توسيط الحاوية */
+}
+
+/* الإطار الجانبي اللي فيه عنوان */
+.frame-box {
+  border: 8px solid #999; /* إطار رمادي سميك */
+  border-top: none;
+  border-bottom: none;
+  padding: 20px; /* مسافة داخلية */
+  position: relative; /* لتحديد زوايا خاصة */
+  width: 180px; /* عرض ثابت */
+}
+
+/* زوايا ديكورية في الإطار */
+.frame-box::before,
+.frame-box::after {
+  content: "";
+  position: absolute; /* تحديد مكان الزاوية */
+  width: 20px;
+  height: 20px;
+  border: 8px solid #999; /* نفس لون الإطار */
+}
+
+/* الزاوية العلوية اليمنى */
+.frame-box::before {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+/* الزاوية السفلية اليسرى */
+.frame-box::after {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+/* العنوان داخل الإطار */
+.frame-box .title {
+  font-size: 22px;
+  font-weight: bold; /* خط عريض */
+}
+
+/* النص اللي بيعرض الوقت والأيام */
+.text-hours {
+  padding: 20px;
+}
+
+.text-hours p {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+/* وقت العمل */
+.time {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* أيام العمل */
+.days {
+  display: flex;
+  flex-direction: column; /* ترتيب عمودي */
+  gap: 10px; /* مسافة بين الأيام */
+  color: #eee1e1; /* لون رمادي */
+  font-size: 18px;
+}
+
+.skk{
+  color: rgb(11, 157, 235);
+}
+ 
+
+.seifb {
+  background-color: #007bff;
+  /* لون خلفية الزر (أزرق جذاب) */
+  color: white;
+  /* لون الخط داخل الزر */
+  padding: 10px 20px;
+  /* مسافة داخلية (أعلى وأسفل 10، يمين ويسار 20) */
+  font-size: 33px;
+  /* حجم الخط داخل الزر */
+  border: none;
+  /* إزالة الإطار الخارجي الافتراضي */
+  border-radius: 8px;
+  /* جعل زوايا الزر دائرية */
+  cursor: pointer;
+  /* تغيير شكل المؤشر ليد عند المرور على الزر */
+  transition: background-color 0.3s ease;
+  /* تأثير ناعم عند تغيير لون الخلفية */
+ 
+}
+
+.seifb:hover {
+  background-color: #0056b3;
+  /* لون خلفية الزر عند المرور عليه (Hover) */
+}
+
+.seifbb{
+  text-align: center;
+}
+/* تنسيق الموقع على الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .container, .container-hours {
+    flex-direction: column; /* ترتيب عمودي */
+    align-items: center; /* توسيط المحتوى */
+  }
+
+  .card {
+    width: 90%; /* جعل البطاقة بعرض أكبر */
+  }
+
+  .sk {
+    color:rgb(210, 181, 15);
+  }
+         
+    
+         /* تنسيق الزر */
+         .seiflg{ padding: 10px 20px;
+        /* مساحة داخلية للزر */
+        font-size: 16px;
+        /* حجم الخط */
+        background-color: #202053;
+        /* لون خلفية الزر */
+        color: white;
+        /* لون الخط أبيض */
+        border: none;
+        /* بدون إطار */
+        border-radius: 5px;
+        /* زوايا مدورة */
+        cursor: pointer;
+        /* شكل مؤشر الماوس */}
+        </style>
+
+<button style="color: white; background-color: black; border: none; font-size: 18px; cursor: pointer; margin: 0 10px;">
+ <a href="https://www.youtube.com/" target="_blank" title="انضم لينا ">log in </a>
+
+
+</button>
+<button style="color: white; background-color: black; border: none; font-size: 18px; cursor: pointer; margin: 0 10px;">
+  Sign Up
+</button>
+
+
+
+<form action="search_results.html" method="get">
+  <input type="search" name="query" placeholder=" اي بيدور في عقلك ....">
+  <button type="submit" class="search-btn">بحث</button>
+</form>
+
+
+
+  
+
+
+<body>
+  <header>
+    <h1> متحف الحضارات</h1>
+    <p>
+    <h3>
+      تعالى نأخذك الي عالم الجمال عالم المتعه والاثاره
+    </h3>
+    </p>
+  
+
+  </header>
+  <biv class="ss">
+    <h2> تعالى نتعلم شويه عن الحضارات</h2>
+    <div class=" s1">
+     <ul>
+        <h3>
+           <li> الحضاره المصريه </li>
+        </h3>
+       <ol type="1" start="1">
+         <li> هيا من اقدم حضارات العالم </li>
+         <li>هي ثاني حضاره عرفها الانسان </li>
+         <li>بدأت الحضاره المصريه عام 3150 قبل الميلاد</li>
+       </ol>
+     </ul> 
+    </div>
+  </biv>
+  <div class="s2">
+    <ul>
+      <li>
+        <h3> الحضاره اليونانيه </h3>
+      </li>
+      <ol type="1" start="1">
+        <li> هي اول حضاره متعلمه في اروبا في اوربا </li>
+        <li> الحضاره اليونانيه هي مهد الفلسفه والديمقراطيه </li>
+        <li> تميزت الحضارةاليونانيه بالهندسه والعماره</li>
+      </ol>
+    </ul>
+  </div>
+  <div class="s3">
+    <ul>
+      <li>
+        <h3> الحضاره الرمانيه </h3>
+      </li>
+      <ol type="1" start="1">
+        <li>بدات الحضاره الرومانيه عام753 ق.م</li>
+        <li>كانت تتميز الحضاره الرومانيه بالنظام والقانون </li>
+        <li> سقطت الحضاره الرومانيه عام 476م </li>
+      </ol>
+    </ul>
+  </div>
+  <div class="s4">
+    <ul>
+      <li>
+        <h3> الحضاره الاسلامية</h3>
+      </li>
+      <ol type="1" start="1">
+        <li> بدات الحضاره السلاميه في القرن السابع مع بعثه النبي صلى الله عليه وسلم </li>
+        <li> تميزت الحضاره الاسلامه بالتقدم في العلمي والثقافي </li>
+        <li> انتشر فيها التسامح الديني و التنوع الثقافي </li>
+      </ol>
+    </ul>
+  </div>
+  <section class="seif">
+  <div class="container">
+    <a title="الحمدالله ">
+     <div class="card">
+       <img src="https://read.opensooq.com/wp-content/uploads/2022/01/%D8%AF%D9%84%D9%8A%D9%84-%D8%B4%D8%A7%D9%85%D9%84-%D8%B9%D9%86-%D8%A7%D9%84%D8%AD%D8%B6%D8%A7%D8%B1%D8%A9-%D8%A7%D9%84%D8%B1%D9%88%D9%85%D8%A7%D9%86%D9%8A%D8%A9-.webp" alt="الحضارة الرومانية" />
+        <a href=" https://moadelus.github.io/7gugh/" target="_blank" title="الحضاره الرومانيه">
+       <p>الحضارة الرومانية</p>
+       <button onclick=""> انقر هنا </button>
+     </div>
+   </a>
+    <a title=" سبحان الله ">
+     <div class="card">
+       <img src="https://i.pinimg.com/originals/2d/dd/e7/2ddde752d9a5635655da50732bceef64.jpg" alt="الحضارة اليونانية" />
+        
+       <p>الحضارة اليونانية</p>
+       <button onclick=""> انقر هنا </button>
+     </div>
+  </a>
+    <a title=" بلدك دي يا معلم ">
+      <div class="card">
+       <img src="https://i.pinimg.com/originals/54/95/cf/5495cf0d28b6ad8d457cea3c9d291b06.jpg" alt="الحضارة الفرعونية" />
+       <p>الحضارة الفرعونية</p>
+       <button onclick=""> انقر هنا </button>
+      </div>
+    </a> 
+    <a title="صلي على النبي وتبسم ">
+     <div class="card">
+      <img src="https://cdn.arabsstock.com/uploads/images/223531/og-Et0v106zCr.jpeg" alt="الحضارة الإسلامية" />
+      <a href=" https://seif-9.github.io/seif/"  target="_blank"       title="الحضاره الاسلاميه "> 
+      <p>الحضارة الإسلامية</p>
+     </a>
+     <button onclick=""> انقر هنا </button>
+     </div>
+    </a>
+  </div>
+  </section>
+
+
+  <section class="working-hours">
+    <div class="container-hours">
+      <div class="frame-box">
+         <p class="title">ساعات العمل</p>
+      </div>
+      <div class="text-hours">
+        <p>من</p>
+        <p class="time">٠٩:٠٠ صباحا</p>
+        <p>إلى</p>
+        <p class="time">٠٥:٠٠ مساء</p>
+      </div>
+      <div class="days">
+        <div> السبت</div>
+        <div> الاحد</div>
+        <div>الاثنين</div>
+        <div>الثلاثاء</div>
+        <div>الأربعاء</div>
+        <div>الخميس</div>
+      </div>
+      <div class="sk">
+        الجمعه اجازه رسميه 
+        
+      </div>
+      <!-- داخل قسم ساعات العمل مثلاً -->
+      <div class="text-hours">
+  
+      <div class=" skk">
+     <span>من السبت إلى الخميس</span>
+     <span>من الساعة 9 صباحًا إلى 5 مساءً</span>
+     </div>
+     </div>
+      </div>
+    </div>
+  </section> 
+  <br>
+  <br>
+  <br> 
+  <br >
+  <div   class="seifbb">
+  <button class="seifb">حجز التذاكر</button>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <footer>
+    <a href="https://www.instagram.com/username/" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"
+        style="width:40px; height:40px;">
+    </a>
+    <a href="https://www.facebook.com/username" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"
+        style="width:40px; height:40px;">
+    </a>
+    <p>© 2025 متحف الحضارات. جميع الحقوق محفوظة.</p>
+  </footer>
+  <script src="./it.js"></script>
+    <button onclick="goTop()" style="position:fixed;bottom:20px;right:20px;">بص فوق </button>
+
+  
+  
+
+</body>
+
+</html>

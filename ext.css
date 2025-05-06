@@ -1,0 +1,280 @@
+/* تنسيق الجسم العام للموقع */
+body {
+  margin: 0; /* إزالة الهوامش من الأطراف */
+  font-family: 'Cairo', sans-serif; /* تحديد نوع الخط */
+  background-color: #f4f4f4; /* لون الخلفية فاتح */
+  direction: rtl; /* اتجاه الكتابة من اليمين لليسار */
+}
+
+/* تنسيق الهيدر اللي فوق */
+header {
+  background-color: #202053; /* لون الخلفية أزرق غامق */
+  color: white; /* لون الخط أبيض */
+  padding: 30px; /* مساحة داخلية */
+  text-align: center; /* توسيط النص */
+}
+
+header h1 {
+  font-size: 36px; /* حجم كبير للعنوان */
+  margin: 0; /* بدون هامش خارجي */
+}
+
+header h3 {
+  font-weight: normal; /* بدون عُرض زائد */
+  margin-top: 10px; /* مسافة بسيطة من فوق */
+  color: #eee;
+}
+
+/* تنسيق صندوق البحث */
+form {
+  text-align: center; /* توسيط المحتوى */
+  padding: 20px; /* مساحة داخلية */
+  background-color: #eee; /* لون رمادي فاتح للخلفية */
+}
+
+input[type="search"] {
+  padding: 10px; /* مساحة داخلية */
+  width: 250px; /* العرض */
+  font-size: 16px; /* حجم الخط */
+  border-radius: 5px; /* تدوير الزوايا */
+  border: 1px solid #ccc; /* إطار خفيف */
+}
+
+.search-btn {
+  padding: 10px 20px; /* مساحة داخلية للزر */
+  font-size: 16px; /* حجم الخط */
+  background-color: #202053; /* لون خلفية الزر */
+  color: white; /* لون الخط أبيض */
+  border: none; /* بدون إطار */
+  border-radius: 5px; /* زوايا مدورة */
+  cursor: pointer; /* شكل مؤشر الماوس */
+}
+
+/* تنسيق أقسام الحضارات الأربعة */
+.s1, .s2, .s3, .s4 {
+  background-color: white; /* خلفية بيضاء */
+  margin: 20px auto; /* مسافة من فوق وتحت + توسيط */
+  padding: 20px; /* مساحة داخلية */
+  border-radius: 15px; /* تدوير الحواف */
+  width: 90%; /* عرض نسبي */
+  max-width: 800px; /* أقصى عرض */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* ظل خفيف */
+}
+
+/* تنسيق عناوين الأقسام */
+h2, h3 {
+  color: #202053; /* لون العنوان أزرق غامق */
+}
+
+/* تنسيق القوائم */
+ol, ul {
+  padding-right: 20px; /* مسافة لليمين */
+}
+
+/* تنسيق بطاقات عرض الحضارات */
+.card {
+  background-color: white; /* خلفية بيضاء */
+  border-radius: 15px; /* زوايا مدورة */
+  padding: 15px; /* مساحة داخلية */
+  margin: 10px; /* مسافة بين البطاقات */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* ظل خفيف */
+  text-align: center; /* توسيط النص */
+  width: 250px; /* عرض البطاقة */
+}
+
+.card img {
+  width: 100%; /* الصورة تغطي كل العرض */
+  height: 180px; /* ارتفاع ثابت */
+  object-fit: cover; /* تقطيع الصورة لتناسب الإطار */
+  border-radius: 10px; /* زوايا مدورة للصورة */
+}
+
+.card button {
+  margin-top: 10px; /* مسافة فوق الزر */
+  background-color: #202053; /* لون خلفية الزر */
+  color: white; /* لون الخط أبيض */
+  padding: 8px 15px; /* حجم الزر */
+  border: none; /* بدون إطار */
+  border-radius: 5px; /* زوايا مدورة */
+  cursor: pointer; /* شكل الماوس عند التمرير */
+}
+
+/* تنسيق الحاوية اللي بتجمع البطاقات */
+.container {
+  display: flex; /* ترتيب أفقي */
+  flex-wrap: wrap; /* لو مفيش مساحة ينزل تحت */
+  justify-content: center; /* توسيط البطاقات */
+  padding: 20px; /* مسافة داخلية */
+  gap: 20px; /* مسافة بين البطاقات */
+}
+
+/* الفوتر أسفل الصفحة */
+footer {
+  background-color: #202053; /* خلفية داكنة */
+  color: white; /* لون الخط */
+  text-align: center; /* توسيط المحتوى */
+  padding: 20px; /* مسافة داخلية */
+}
+
+footer a img {
+  margin: 0 10px; /* مسافة بين الأيقونات */
+}
+
+/* قسم ساعات العمل */
+.working-hours {
+  background-color: #12124a; /* لون خلفية داكن */
+  color: white; /* لون الخط أبيض */
+  padding: 40px 0; /* مساحة من فوق وتحت */
+  direction: rtl; /* من اليمين لليسار */
+  text-align: center; /* توسيط المحتوى */
+}
+
+/* الحاوية اللي بتحتوي الساعة والعنوان */
+.container-hours {
+  display: flex; /* ترتيب أفقي */
+  justify-content: space-around; /* توزيع المسافات */
+  align-items: center; /* توسيط العناصر عامودي */
+  flex-wrap: wrap; /* ينزل تحت لو الشاشة صغيرة */
+  max-width: 1000px; /* أقصى عرض */
+  margin: 0 auto; /* توسيط الحاوية */
+}
+
+/* الإطار الجانبي اللي فيه عنوان */
+.frame-box {
+  border: 8px solid #999; /* إطار رمادي سميك */
+  border-top: none;
+  border-bottom: none;
+  padding: 20px; /* مسافة داخلية */
+  position: relative; /* لتحديد زوايا خاصة */
+  width: 180px; /* عرض ثابت */
+}
+
+/* زوايا ديكورية في الإطار */
+.frame-box::before,
+.frame-box::after {
+  content: "";
+  position: absolute; /* تحديد مكان الزاوية */
+  width: 20px;
+  height: 20px;
+  border: 8px solid #999; /* نفس لون الإطار */
+}
+
+/* الزاوية العلوية اليمنى */
+.frame-box::before {
+  top: 0;
+  right: 0;
+  border-left: none;
+  border-bottom: none;
+}
+
+/* الزاوية السفلية اليسرى */
+.frame-box::after {
+  bottom: 0;
+  left: 0;
+  border-right: none;
+  border-top: none;
+}
+
+/* العنوان داخل الإطار */
+.frame-box .title {
+  font-size: 22px;
+  font-weight: bold; /* خط عريض */
+}
+
+/* النص اللي بيعرض الوقت والأيام */
+.text-hours {
+  padding: 20px;
+}
+
+.text-hours p {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+/* وقت العمل */
+.time {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* أيام العمل */
+.days {
+  display: flex;
+  flex-direction: column; /* ترتيب عمودي */
+  gap: 10px; /* مسافة بين الأيام */
+  color: #eee1e1; /* لون رمادي */
+  font-size: 18px;
+}
+
+.skk{
+  color: rgb(11, 157, 235);
+}
+ 
+
+.seifb {
+  background-color: #007bff;
+  /* لون خلفية الزر (أزرق جذاب) */
+  color: white;
+  /* لون الخط داخل الزر */
+  padding: 10px 20px;
+  /* مسافة داخلية (أعلى وأسفل 10، يمين ويسار 20) */
+  font-size: 33px;
+  /* حجم الخط داخل الزر */
+  border: none;
+  /* إزالة الإطار الخارجي الافتراضي */
+  border-radius: 8px;
+  /* جعل زوايا الزر دائرية */
+  cursor: pointer;
+  /* تغيير شكل المؤشر ليد عند المرور على الزر */
+  transition: background-color 0.3s ease;
+  /* تأثير ناعم عند تغيير لون الخلفية */
+ 
+}
+
+.seifb:hover {
+  background-color: #0056b3;
+  /* لون خلفية الزر عند المرور عليه (Hover) */
+}
+
+.seifbb{
+  text-align: center;
+}
+/* تنسيق الموقع على الشاشات الصغيرة */
+@media (max-width: 768px) {
+  .container, .container-hours {
+    flex-direction: column; /* ترتيب عمودي */
+    align-items: center; /* توسيط المحتوى */
+  }
+
+  .card {
+    width: 90%; /* جعل البطاقة بعرض أكبر */
+  }
+
+  .sk {
+    color:rgb(210, 181, 15);
+  }
+         
+    
+         /* تنسيق الزر */
+         .seiflg{ padding: 10px 20px;
+        /* مساحة داخلية للزر */
+        font-size: 16px;
+        /* حجم الخط */
+        background-color: #202053;
+        /* لون خلفية الزر */
+        color: white;
+        /* لون الخط أبيض */
+        border: none;
+        /* بدون إطار */
+        border-radius: 5px;
+        /* زوايا مدورة */
+        cursor: pointer;
+        /* شكل مؤشر الماوس */}
+           
+
+
+
+
+
+
+
